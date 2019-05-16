@@ -17,7 +17,10 @@
   font-style: normal;
 }
 
-*, body {
+*,
+*::after,
+*::before, 
+body {
   padding: 0;
   margin: 0;
 }
@@ -126,23 +129,74 @@ nav li {
 }
 
 button {
+  position: relative;
   width: 250px;
   height: 65px;
   display: inline-block;
   border-radius: 40px;
   border: none;
-}
-a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
   cursor: pointer;
+  background-color: rgba(113,199,236,.7);
+  color: white;
+  transition: .7s;
+  box-shadow: 10px 10px 17px rgba(0, 0, 0, 0.2);
+  animation: fromTop 1s ease-in-out;
+}
+
+button::after {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  border-radius: 40px;
+  display: inline-block;
+  left: 50%;
+  top: 50%;
+  height: 0%;
+  width: 0%;
+  transition: .7s;
+  z-index: -1;
+}
+
+button:hover {
+  box-shadow: none;
+  color: rgba(0,80,115, .8);
+  background-color: rgba(113,199,236, 0);
+}
+
+button:hover::after {
+  height: 120%;
+  width: 120%;
+  left: -10%;
+  top: -10%;
+  transition: .5s;
+  display: inline-block;
 }
 
 .button p {
   cursor: pointer;
   font-family: 'rubikregular';
-  font-size: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
 }
 
-/* ======= */
+@keyframes fromTop {
+  0% {
+    transform: translateY(-400px);
+  }
+  80% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ======= MAIN ======= */
+#main {
+  height: 500px;
+}
 
 
 
