@@ -31,7 +31,7 @@ header {
   position: fixed;
   width: 100%;
   height: 70px;
-  z-index: 1;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -285,6 +285,7 @@ button:hover::after {
   opacity: 1;
   transition: .5s;
 }
+
 .card:hover {
   overflow: visible;
   z-index: 3;
@@ -295,4 +296,22 @@ button:hover::after {
 .card:hover .arrow-down {
   opacity: 0;
   transform: translateY(80px);
+}
+
+/* ======= FOOTER ======= */
+footer {
+  font-family: "rubiklight";
+  background-color: #107dac;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+footer a {
+  font-family: "rubikmedium";
+  letter-spacing: 2px;
+  text-decoration: none;
 }
