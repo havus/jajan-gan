@@ -42,8 +42,17 @@ header {
 header .logo {
   display: flex;
   align-items: center;
-  margin: 10px 30px;
+  margin: 10px 150px;
 }
+@media only screen and (max-width: 1024px) {
+  header .logo {
+    margin: 10px 80px;
+  }
+  nav {
+    margin: 10px 80px;
+  }
+}
+
 header h1 {
   font-family: 'rubikmedium';
   color: white;
@@ -57,12 +66,15 @@ header a {
   text-decoration: none;
   font-family: 'rubiklight';
 }
+header a:hover {
+  color: rgba(113,199,236, 1);
+}
 header img {
   width: 50px;
   height: 50px;
 }
 nav {
-  margin: 10px 30px;
+  margin: 10px 150px;
 }
 nav ul {
   display: flex;
@@ -140,7 +152,7 @@ button {
   color: white;
   transition: .7s;
   box-shadow: 10px 10px 17px rgba(0, 0, 0, 0.2);
-  animation: fromTop 1s ease-in-out;
+  animation: fromTop .7s ease-out;
 }
 
 button::after {
@@ -155,6 +167,7 @@ button::after {
   width: 0%;
   transition: .7s;
   z-index: -1;
+  opacity: .3;
 }
 
 button:hover {
@@ -170,6 +183,7 @@ button:hover::after {
   top: -10%;
   transition: .5s;
   display: inline-block;
+  opacity: 1;
 }
 
 .button p {
@@ -195,25 +209,90 @@ button:hover::after {
 
 /* ======= MAIN ======= */
 #main {
-  height: 500px;
+  min-height: 500px;
 }
 
+.container {
+  margin: 100px 120px;
+}
+.row-1 , .row-2 {
+  display: flex;
+  justify-content: space-around;
+}
 
+.card {
+  height: 320px;
+  margin: 30px;
+  /* break-inside: avoid; */
+  border-radius: 9px;
+  position: relative;
+  width: 30%;
+  background-color: rgb(219, 218, 255);
+}
+.price {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: white;
+  font-family: 'rubikregular';
+  background-color: rgba(16,125,172, .9);
+  /* height: 40px; */
+  padding: 12px;
+  border-radius: 5px;
+}
+.card-img {
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+  max-width: 100%;
+}
 
+.card-img img {
+  width: 100%;
+  border-radius: 9px;
+}
 
+.card-content {
+  padding: 10px 20px;
+  background-color: rgb(219, 218, 255);
+  border-radius: 9px;
+  transition: .5s;
+  height: 25px;
+  overflow: hidden;
+}
 
+.card-content h1 {
+  color: rgb(0,80,115);
+  font-family: 'rubikregular';
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
 
+.card-content p {
+  text-align: justify;
+  font-family: 'rubiklight';
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.arrow-down {
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  background-color: rgba(240, 248, 255, .5);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  transition: .5s;
+}
+.card:hover {
+  overflow: visible;
+  z-index: 3;
+}
+.card:hover .card-content{
+  height: 150px;
+}
+.card:hover .arrow-down {
+  opacity: 0;
+  transform: translateY(80px);
+}
