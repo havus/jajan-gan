@@ -291,8 +291,14 @@ button:hover::after {
   bottom: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   opacity: 1;
   transition: .5s;
+}
+
+.arrow-down img {
+  width: 40px;
+  height: 40px;
 }
 
 .card:hover {
